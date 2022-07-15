@@ -24,6 +24,7 @@ number	k	return
 */
 #include <string>
 #include <vector>
+#include <iostream>
 
 using namespace std;
 
@@ -32,29 +33,22 @@ string solution(string number, int k) {
 	int max = number[0]-'0';
 	int num = number[0]-'0';
     
-    if(k == 1){
-        for(int i=0; i<number.size(); i++){
-            if(max < (number[i]-'0')) max = number[i]-'0';
-        }
-        num = max;
-        k--;
-    }else{
-        for(int i=1; i<number.size(); i++){
-            if(k > 0){
-                if(max < (number[i]-'0')){
-                    while(k > 0 && num > 0 && num%10 < (number[i]-'0')){
-                        num /= 10; 
-                        k--;
-                    }
-                    max = (number[i]-'0');
-                    num = num*10 + max;
-                }else{
-                    max = (number[i]-'0');
-                    num = num*10 + max;
+    
+    for(int i=1; i<number.size(); i++){
+        if(k > 0){
+            if(max < (number[i]-'0')){
+                while(k > 0 && num > 0 && num%10 < (number[i]-'0')){
+                    num /= 10; 
+                    k--;
                 }
+                max = (number[i]-'0');
+                num = num*10 + max;
             }else{
-                num = num*10 + (number[i]-'0');
+                max = (number[i]-'0');
+                num = num*10 + max;
             }
+        }else{
+            num = num*10 + (number[i]-'0');
         }
     }
 
@@ -63,7 +57,7 @@ string solution(string number, int k) {
         k--;
     }
     
-	cout << num << endl;
+	//cout << num << endl;
 	answer = to_string(num);
 
     return answer;
