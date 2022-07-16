@@ -31,7 +31,7 @@ using namespace std;
 string solution(string number, int k) {
     string answer = "";
 	int max = number[0]-'0';
-	int num = number[0]-'0';
+	long long int num = number[0]-'0';
     
     
     for(int i=1; i<number.size(); i++){
