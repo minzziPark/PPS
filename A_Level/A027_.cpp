@@ -31,34 +31,33 @@ using namespace std;
 string solution(string number, int k) {
     string answer = "";
 	int max = number[0]-'0';
-	long long int num = number[0]-'0';
-    
+	string num = number.substr(0,1);
     
     for(int i=1; i<number.size(); i++){
         if(k > 0){
             if(max < (number[i]-'0')){
-                while(k > 0 && num > 0 && num%10 < (number[i]-'0')){
-                    num /= 10; 
+                while(k > 0 && num[0] != '0' && num[num.size() -1] - '0' < (number[i]-'0')){
+                    num = num.substr(0, num.size()-1); 
                     k--;
                 }
                 max = (number[i]-'0');
-                num = num*10 + max;
+                num = num + number[i];
             }else{
                 max = (number[i]-'0');
-                num = num*10 + max;
+                num = num + number[i];
             }
         }else{
-            num = num*10 + (number[i]-'0');
+            num = num + number[i];
         }
     }
 
     while(k > 0){
-        num /= 10;
+        num = num.substr(0, num.size()-1); 
         k--;
     }
     
 	//cout << num << endl;
-	answer = to_string(num);
+	answer = num;
 
     return answer;
 }
