@@ -20,10 +20,45 @@ top: 스택의 가장 위에 있는 정수를 출력한다. 만약 스택에 들
 출력해야하는 명령이 주어질 때마다, 한 줄에 하나씩 출력한다.
 */
 #include <iostream>
+#include <vector>
+#include <string>
 
 using namespace std;
 
 int main(){
-	
+	int N;
+	string str = "";
+	int num = 0;
+	vector<int> stack;
+
+	cin >> N;
+	for(int i=0; i<N; i++){
+		cin >> str;
+		cout << str << endl;
+		if(str[0] == 'p'){
+			if(str[1] == 'u'){
+				str = str.substr(5);
+				num = stoi(str);
+				cout << num << endl;
+				stack.push_back(num);
+				num = 0;
+			}else if(str[1] == 'o'){
+				if(stack.size() == 0) cout << -1 << endl;
+				else{
+					num = stack.back();
+					cout << num << endl;
+					stack.pop_back();
+				}
+			}
+		}else if(str[0] == 't'){
+			if(stack.size() == 0) cout << -1 << endl;
+			else cout << stack.back() << endl;
+		}else if(str[0] == 's'){
+			cout << stack.size() << endl;
+		}else if(str[0] == 'e'){
+			if(stack.size() == 0) cout << 1 << endl;
+			else cout << 0 << endl;
+		}
+	}
 	return 0;
 }
