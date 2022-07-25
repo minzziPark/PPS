@@ -18,9 +18,11 @@ using namespace std;
 int solution(vector<int> cookie) {
     int answer = -1;
 
-	for(int i=cookiel.size()-1; i>0; i--){
-		
+	for(int i=cookie.size()-1; i>0; i--){
+		for(int j=i; j<)
 	}
 
     return answer;
 }
+0 1 2 3
+1 1 2 3
