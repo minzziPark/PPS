@@ -82,19 +82,19 @@ int main(){
 	for(int i=0; i<size; i++){
 		cout << a[i] << " ";
 	}
-	cout << endl;
+	cout << "\n";
 
 	cout << "b : ";
 	for(int i=0; i<size; i++){
 		cout << b[i] << " ";
 	}
-	cout << endl;
+	cout << "\n";
 
 	for(int i=0; i<size; i++){
 		sum += (a[i] * b[i]);
 	}
 
-	cout << sum << endl;
+	cout << sum << "\n";
 
 	return 0;
 }
