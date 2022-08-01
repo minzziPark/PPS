@@ -113,8 +113,8 @@ int main(){
 
 	cout << fixed;
 	cout.precision(0);
-	cout << good << endl;
-	cout << bad << endl;
+	cout << good << "\n";
+	cout << bad << "\n";
 
 	return 0;
 }
